@@ -12,6 +12,7 @@ export default class PersonDetails extends Component {
     };
   }
   componentDidMount() {
+    //grabs the character's SWAPI id from the url
     const id = this.props.match.params.id;
 
     fetch(`https://swapi.co/api/people/${id}/`)

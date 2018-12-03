@@ -9,7 +9,6 @@ export default class Home extends Component {
     this.state = { text: "", people: [], movie: [] };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.getSinglePerson = this.getSinglePerson.bind(this);
     this.searchResultsText = (
       <p className="searchResultsText">
         There are zero matches.Use this form to search for People or Movies
@@ -83,12 +82,14 @@ export default class Home extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    //resets movie and people results when a user submits a new search
     this.state.people = [];
     this.state.movie = [];
     this.searchResultsText = "";
+    //radio button input results
     const radioButtonInput = e.target.peopleormovie.value;
-
     this.setState();
+    //directs the search function based on the user's radio button input
     if (radioButtonInput === "People") {
       this.getPeople(this.state.text);
     } else if (radioButtonInput === "Movies") {
@@ -97,6 +98,7 @@ export default class Home extends Component {
   }
 
   getButtonClass() {
+    //This function changes the styling on the search button when a user inputs text
     let classes = "SEARCH SearchButton-";
     if (this.state.text.length === 0) {
       classes += "Disabled";
@@ -106,6 +108,7 @@ export default class Home extends Component {
     return classes;
   }
   disableButtonfunction() {
+    //enables the search button if there is text in the search box
     if (this.state.text.length === 0) {
       return true;
     } else if (this.state.text.length != 0) {
@@ -134,18 +137,6 @@ export default class Home extends Component {
         this.setState({ people: json.results });
       })
       .catch(errs => console.log(errs));
-    return;
-  }
-  getSinglePerson() {
-    const id = this.props.match.params.id;
-
-    fetch(`https://swapi.co/api/people/${id}/`)
-      .then(data => data.json())
-      .then(json => {
-        this.setState({ people: json });
-      })
-      .catch(errs => console.log(errs));
-
     return;
   }
 }

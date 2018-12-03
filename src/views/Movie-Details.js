@@ -12,7 +12,6 @@ export default class MovieDetails extends Component {
   }
   componentDidMount() {
     const id = this.props.match.params.id;
-
     fetch(`https://swapi.co/api/films/${id}/`)
       .then(data => data.json())
       .then(json => {

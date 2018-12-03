@@ -11,6 +11,7 @@ export default class Home extends React.Component {
         <button className="SEE-DETAILS Rectangle-21">
           <Link
             className="link"
+            //slice grabs the movie key number from the SWAPI url
             key={this.props.movie.url.slice(26)}
             to={"Movie-Details" + this.props.movie.url.slice(26)}
             component={MovieDetails}
