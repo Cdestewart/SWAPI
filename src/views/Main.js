@@ -45,7 +45,13 @@ export default class Home extends Component {
               placeholder="eg-Chewbacca-Yoda-Boba-Fett"
             />
 
-            <button className="SEARCH SearchButton-Enabled">SEARCH</button>
+            <button
+              disabled={this.disableButtonfunction()}
+              className={this.getButtonClass()}
+            >
+              {this.isDisabled}
+              SEARCH
+            </button>
           </form>
         </div>
         <div className="MatchesBG">
@@ -63,6 +69,8 @@ export default class Home extends Component {
   }
   handleChange(e) {
     this.setState({ text: e.target.value });
+    this.disableButtonfunction();
+    this.getButtonClass();
     return;
   }
 
@@ -70,11 +78,30 @@ export default class Home extends Component {
     e.preventDefault();
     const radioButtonInput = e.target.peopleormovie.value;
     console.log("This state text", this.state.text);
+
+    this.setState();
     if (radioButtonInput === "People") {
       this.getPeople(this.state.text);
     } else if (radioButtonInput === "Movies") {
       this.getMovies(this.state.text);
     }
+  }
+  getButtonClass() {
+    let classes = "SEARCH SearchButton-";
+    if (this.state.text.length === 0) {
+      classes += "Disabled";
+    } else {
+      classes += "Enabled";
+    }
+    return classes;
+  }
+  disableButtonfunction() {
+    if (this.state.text.length === 0) {
+      return true;
+    } else if (this.state.text.length != 0) {
+      return false;
+    }
+    return true;
   }
   getMovies(searchInput) {
     console.log(searchInput);
