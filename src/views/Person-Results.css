@@ -1,0 +1,36 @@
+.SEE-DETAILS {
+  width: 94px;
+  height: 18px;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #ffffff;
+}
+.Rectangle-21 {
+  width: 134px;
+  height: 34px;
+  border-radius: 17px;
+  background-color: #0ab463;
+}
+.name {
+  display: inline-block;
+  width: 138px;
+  height: 20px;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+}
+.divider {
+  width: 522px;
+  height: 1px;
+  background-color: #c4c4c4;
+}

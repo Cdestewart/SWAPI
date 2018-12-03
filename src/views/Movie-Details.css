@@ -1,0 +1,17 @@
+.characters {
+  width: 322px;
+  height: 124px;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #0094ff;
+}
+.divider {
+  width: 322px;
+  height: 1px;
+  background-color: #c4c4c4;
+}

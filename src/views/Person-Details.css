@@ -1,0 +1,83 @@
+.DetailsBG {
+  width: 804px;
+  min-height: 417px;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px 0 rgba(132, 132, 132, 0.75);
+  background-color: #ffffff;
+  margin-left: 318px;
+  margin-top: 30px;
+}
+.title {
+  padding-top: 30px;
+  padding-left: 30px;
+  font-family: Montserrat;
+  font-size: 18px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+  margin-bottom: 20px;
+}
+.sub {
+  display: inline-block;
+  vertical-align: top;
+  max-width: 322px;
+  margin-left: 30px;
+}
+.rightSub {
+  margin-left: 70px;
+}
+h5 {
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #000000;
+}
+.movieName {
+  width: 322px;
+  height: 18px;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #0094ff;
+}
+.divider {
+  width: 322px;
+  height: 1px;
+  background-color: #c4c4c4;
+}
+
+.divider {
+  width: 522px;
+  height: 1px;
+  background-color: #c4c4c4;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.backToSearch {
+  width: 187px;
+  height: 34px;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #ffffff;
+  border-radius: 17px;
+  background-color: #0ab463;
+  margin-left: 30px;
+  margin-bottom: 30px;
+  vertical-align: bottom;
+}
