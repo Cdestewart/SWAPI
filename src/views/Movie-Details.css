@@ -9,9 +9,14 @@
   line-height: normal;
   letter-spacing: normal;
   color: #0094ff;
+  padding: 2px;
+  text-decoration: none;
 }
 .divider {
   width: 322px;
   height: 1px;
   background-color: #c4c4c4;
+}
+.comma {
+  color: black;
 }

@@ -13,17 +13,15 @@ export default class PersonDetails extends Component {
   }
   componentDidMount() {
     const id = this.props.match.params.id;
-    console.log(id);
+
     fetch(`https://swapi.co/api/people/${id}/`)
       .then(data => data.json())
       .then(json => {
-        console.log(json);
         this.setState({ people: json });
-        console.log(this.state.people.name);
       })
       .then(results => {
         let filmId = "";
-        console.log("film number", this.state.people.films.length);
+
         for (let i = 0; i < this.state.people.films.length; i++) {
           filmId = this.state.people.films[i].slice(27);
           fetch(`https://swapi.co/api/films/${filmId}`)
@@ -34,7 +32,6 @@ export default class PersonDetails extends Component {
               console.log(this.state.movieData);
             })
             .catch(errs => console.log(errs));
-          console.log("FILMS", filmId);
         }
       })
       .catch(errs => console.log(errs));
@@ -62,7 +59,7 @@ export default class PersonDetails extends Component {
           {this.state.movieData.map(Movie => (
             <ul>
               <Link
-                className="movieName"
+                className="movieName link"
                 key={Movie.url.slice(26)}
                 to={"/Movie-Details" + Movie.url.slice(26)}
                 component={MovieDetails}
@@ -73,7 +70,9 @@ export default class PersonDetails extends Component {
           ))}
         </div>
         <button className="backToSearch">
-          <a href="/">BACK TO SEARCH</a>
+          <a className="link" href="/">
+            BACK TO SEARCH
+          </a>
         </button>
       </div>
     );

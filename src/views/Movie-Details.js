@@ -12,17 +12,15 @@ export default class MovieDetails extends Component {
   }
   componentDidMount() {
     const id = this.props.match.params.id;
-    console.log(id);
+
     fetch(`https://swapi.co/api/films/${id}/`)
       .then(data => data.json())
       .then(json => {
-        console.log(json);
         this.setState({ movie: json });
-        console.log(this.state.movie);
       })
       .then(results => {
         let personId = "";
-        console.log("CHARACTER LENGHT", this.state.movie.characters.length);
+
         for (let i = 0; i < this.state.movie.characters.length; i++) {
           personId = this.state.movie.characters[i].slice(28);
 
@@ -31,7 +29,6 @@ export default class MovieDetails extends Component {
             .then(json => {
               this.state.people[i] = json;
               this.setState({ people: this.state.people });
-              console.log(this.state.people);
             });
         }
       })
@@ -48,7 +45,7 @@ export default class MovieDetails extends Component {
         <div className="sub">
           <h4>Opening Crawl</h4>
           <div className="divider" />
-          <span>{this.state.movie.opening_crawl}</span>
+          <pre>{this.state.movie.opening_crawl}</pre>
         </div>
         <div className="sub rightSub">
           <h4>Characters </h4>
@@ -60,9 +57,15 @@ export default class MovieDetails extends Component {
               className="characters"
             >
               {character.name}
+              <span className="comma">,</span>
             </Link>
           ))}
         </div>
+        <button className="backToSearch">
+          <a className="link" href="/">
+            BACK TO SEARCH
+          </a>
+        </button>
       </div>
     );
   }

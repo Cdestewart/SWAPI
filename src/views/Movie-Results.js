@@ -1,7 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 import "./Movie-Results.css";
 import { Link } from "react-router-dom";
-import PersonDetail from "./Person-Details";
 import MovieDetails from "./Movie-Details";
 
 export default class Home extends React.Component {
@@ -11,6 +10,7 @@ export default class Home extends React.Component {
         <span className="name">{this.props.movie.title}</span>
         <button className="SEE-DETAILS Rectangle-21">
           <Link
+            className="link"
             key={this.props.movie.url.slice(26)}
             to={"Movie-Details" + this.props.movie.url.slice(26)}
             component={MovieDetails}
@@ -18,7 +18,7 @@ export default class Home extends React.Component {
             See Details
           </Link>
         </button>
-        <div className="divider" />
+        <div className="resultsDivider" />
       </div>
     );
   }

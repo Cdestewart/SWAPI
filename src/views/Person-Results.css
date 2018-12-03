@@ -9,12 +9,15 @@
   line-height: normal;
   letter-spacing: normal;
   color: #ffffff;
+  float: right;
+  margin-right: 60px;
 }
 .Rectangle-21 {
   width: 134px;
   height: 34px;
   border-radius: 17px;
   background-color: #0ab463;
+  vertical-align: top;
 }
 .name {
   display: inline-block;
@@ -28,9 +31,16 @@
   line-height: normal;
   letter-spacing: normal;
   color: #000000;
+  margin-bottom: 10px;
 }
-.divider {
+.resultsDivider {
   width: 522px;
   height: 1px;
   background-color: #c4c4c4;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.link {
+  text-decoration: none;
+  color: white;
 }

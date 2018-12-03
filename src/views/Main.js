@@ -10,7 +10,13 @@ export default class Home extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.getSinglePerson = this.getSinglePerson.bind(this);
+    this.searchResultsText = (
+      <p className="searchResultsText">
+        There are zero matches.Use this form to search for People or Movies
+      </p>
+    );
   }
+
   render() {
     return (
       <div>
@@ -49,7 +55,6 @@ export default class Home extends Component {
               disabled={this.disableButtonfunction()}
               className={this.getButtonClass()}
             >
-              {this.isDisabled}
               SEARCH
             </button>
           </form>
@@ -57,6 +62,7 @@ export default class Home extends Component {
         <div className="MatchesBG">
           <span className="Results">Results</span>
           <div className="resultsDivider" />
+          {this.searchResultsText}
           {this.state.people.map((people, index) => (
             <PersonResults key={index} person={people} />
           ))}
@@ -71,13 +77,16 @@ export default class Home extends Component {
     this.setState({ text: e.target.value });
     this.disableButtonfunction();
     this.getButtonClass();
+
     return;
   }
 
   handleSubmit(e) {
     e.preventDefault();
+    this.state.people = [];
+    this.state.movie = [];
+    this.searchResultsText = "";
     const radioButtonInput = e.target.peopleormovie.value;
-    console.log("This state text", this.state.text);
 
     this.setState();
     if (radioButtonInput === "People") {
@@ -86,6 +95,7 @@ export default class Home extends Component {
       this.getMovies(this.state.text);
     }
   }
+
   getButtonClass() {
     let classes = "SEARCH SearchButton-";
     if (this.state.text.length === 0) {
@@ -104,13 +114,11 @@ export default class Home extends Component {
     return true;
   }
   getMovies(searchInput) {
-    console.log(searchInput);
     fetch(
       `https://swapi.co/api/films/?search=${encodeURIComponent(searchInput)}`
     )
       .then(data => data.json())
       .then(json => {
-        console.log(json.results);
         this.setState({ movie: json.results });
         this.props.movie = json.results;
       })
@@ -118,28 +126,23 @@ export default class Home extends Component {
     return;
   }
   getPeople(searchInput) {
-    console.log(searchInput);
     fetch(
       `https://swapi.co/api/people/?search=${encodeURIComponent(searchInput)}`
     )
       .then(data => data.json())
       .then(json => {
-        console.log(json.results);
         this.setState({ people: json.results });
-        this.props.people = json.results;
       })
       .catch(errs => console.log(errs));
     return;
   }
   getSinglePerson() {
     const id = this.props.match.params.id;
-    console.log(id);
+
     fetch(`https://swapi.co/api/people/${id}/`)
       .then(data => data.json())
       .then(json => {
-        console.log(json);
         this.setState({ people: json });
-        console.log(this.state.people.name);
       })
       .catch(errs => console.log(errs));
 

@@ -16,7 +16,6 @@ body {
 .Ellipse {
   width: 16px;
   height: 16px;
-  background-color: #0094ff;
 }
 .People {
   margin-right: 30px;
@@ -100,7 +99,7 @@ body {
 }
 .MatchesBG {
   width: 582px;
-  height: 582px;
+  min-height: 582px;
   border-radius: 4px;
   display: inline-block;
   vertical-align: top;
@@ -143,4 +142,11 @@ body {
 }
 form {
   margin-top: 30px;
+}
+.searchResultsText {
+  text-align: center;
+  width: 290px;
+  margin-top: 191px;
+
+  margin-left: 100px;
 }
